@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class BookList extends Component {
 
 
     render() {
-        const { showBookSearchPage } = this.props;
 
         return (
             <div className="list-books">
@@ -163,7 +163,9 @@ class BookList extends Component {
                     </div>
                 </div>
                 <div className="open-search">
-                    <button onClick={() =>  showBookSearchPage(true)}>Add a book</button>
+                    <Link to="/search">
+                        <button>Add a book</button>
+                    </Link>
                 </div>
             </div>
         );
