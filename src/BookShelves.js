@@ -4,7 +4,7 @@ import BookShelf from './BookShelf'
 
 class BookShelves extends Component {
     state = {
-        currentlyReading: [
+        books: [
             {
                 "id": "abcdefghijkl",
                 "imageLinks": {
@@ -14,7 +14,8 @@ class BookShelves extends Component {
                 "title": "To Kill a Mockingbird",
                 "authors": [
                     "Harper Lee"
-                ]
+                ],
+                "shelf": "currentlyReading"
             },
             {
                 "id": "defghijklmno",
@@ -25,10 +26,9 @@ class BookShelves extends Component {
                 "title": "Ender's Game",
                 "authors": [
                     "Orson Scott Card"
-                ]
-            }
-        ],
-        wantToRead: [
+                ],
+                "shelf": "currentlyReading"
+            },
             {
                 "id": "ghijklmnopqr",
                 "imageLinks": {
@@ -38,7 +38,8 @@ class BookShelves extends Component {
                 "title": "1776",
                 "authors": [
                     "David McCullough"
-                ]
+                ],
+                "shelf": "wantToRead"
             },
             {
                 "id": "jklmnopqrstu",
@@ -49,10 +50,9 @@ class BookShelves extends Component {
                 "title": "Harry Potter and the Sorcerer's Stone",
                 "authors": [
                     "J.K. Rowling"
-                ]
-            }
-        ],
-        read: [
+                ],
+                "shelf": "wantToRead"
+            },
             {
                 "id": "stuvwxyzabcd",
                 "imageLinks": {
@@ -62,7 +62,8 @@ class BookShelves extends Component {
                 "title": "The Hobbit",
                 "authors": [
                     "J.R.R. Tolkien"
-                ]
+                ],
+                "shelf": "read"
             },
             {
                 "id": "bcdefghijklm",
@@ -73,7 +74,8 @@ class BookShelves extends Component {
                 "title": "Oh, the Places You'll Go!",
                 "authors": [
                     "Seuss"
-                ]
+                ],
+                "shelf": "read"
             },
             {
                 "id": "klmnopqrstuv",
@@ -84,12 +86,18 @@ class BookShelves extends Component {
                 "title": "The Adventures of Tom Sawyer",
                 "authors": [
                     "Mark Twain"
-                ]
+                ],
+                "shelf": "read"
             }
         ]
     }
 
     render() {
+
+        const { books } = this.state;
+        const currentlyReading = books.filter((book) => (book.shelf === 'currentlyReading'));
+        const wantToRead = books.filter((book) => (book.shelf === 'wantToRead'));
+        const read = books.filter((book) => (book.shelf === 'read'));
 
         return (
             <div className="list-books">
@@ -100,15 +108,15 @@ class BookShelves extends Component {
                     <div>
                         <BookShelf 
                             shelfTitle="Currently Reading" 
-                            books={this.state.currentlyReading}
+                            books={currentlyReading}
                         />
                         <BookShelf 
                             shelfTitle="Want to Read"
-                            books={this.state.wantToRead}
+                            books={wantToRead}
                         />
                         <BookShelf 
                             shelfTitle="Read"
-                            books={this.state.read}
+                            books={read}
                         />
                     </div>
                 </div>
