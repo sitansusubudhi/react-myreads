@@ -92,7 +92,21 @@ class BookShelves extends Component {
         ]
     }
 
+    bookChangeShelf = (bookID, shelf) => {
+        const { books } = this.state;
+        const newBookList = books.map(book => {
+            if (book.id === bookID) {
+                book.shelf = shelf;
+            }
+            return book;
+        });
+        this.setState({
+            books: newBookList
+        });
+    }
+
     render() {
+
 
         const { books } = this.state;
         const currentlyReading = books.filter((book) => (book.shelf === 'currentlyReading'));
@@ -109,14 +123,17 @@ class BookShelves extends Component {
                         <BookShelf 
                             shelfTitle="Currently Reading" 
                             books={currentlyReading}
+                            onChangeBookShelf={this.bookChangeShelf}
                         />
                         <BookShelf 
                             shelfTitle="Want to Read"
                             books={wantToRead}
+                            onChangeBookShelf={this.bookChangeShelf}
                         />
                         <BookShelf 
                             shelfTitle="Read"
                             books={read}
+                            onChangeBookShelf={this.bookChangeShelf}
                         />
                     </div>
                 </div>
