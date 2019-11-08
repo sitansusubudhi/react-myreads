@@ -14,7 +14,6 @@ class BookShelves extends Component {
     componentDidMount() {
         BooksAPI.getAll()
         .then((books) => {
-            console.log(books);
             const currentlyReading = books.filter((book) => book.shelf === 'currentlyReading').map(({id}) => (id)); 
             const wantToRead = books.filter((book) => book.shelf === 'wantToRead').map(({id}) => (id));;
             const read = books.filter((book) => book.shelf === 'read').map(({id}) => (id));;
@@ -29,16 +28,6 @@ class BookShelves extends Component {
     }
 
     bookChangeShelf = (book, shelf) => {
-        // const { books } = this.state;
-        // const newBookList = books.map(book => {
-        //     if (book.id === bookID) {
-        //         book.shelf = shelf;
-        //     }
-        //     return book;
-        // });
-        // this.setState({
-        //     books: newBookList
-        // });
 
         BooksAPI.update(book, shelf)
             .then(({ currentlyReading, wantToRead, read }) => {
