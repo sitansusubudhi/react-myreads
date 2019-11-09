@@ -3,6 +3,33 @@ import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
+const SEARCH_TERMS = [
+    'Android', 'Art', 'Artificial Intelligence', 
+    'Astronomy', 'Austen', 'Baseball', 
+    'Basketball', 'Bhagat', 'Biography', 
+    'Brief', 'Business', 'Camus', 'Cervantes', 
+    'Christie', 'Classics', 'Comics', 'Cook', 
+    'Cricket', 'Cycling', 'Desai', 'Design', 
+    'Development', 'Digital Marketing', 'Drama', 
+    'Drawing', 'Dumas', 'Education', 'Everything', 
+    'Fantasy', 'Film', 'Finance', 'First', 'Fitness',
+    'Football', 'Future', 'Games', 'Gandhi', 'Homer', 
+    'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 
+    'King', 'Lahiri', 'Larsson', 'Learn', 
+    'Literary Fiction', 'Make', 'Manage', 
+    'Marquez', 'Money', 'Mystery', 'Negotiate', 
+    'Painting', 'Philosophy', 'Photography', 
+    'Poetry', 'Production', 'Programming', 
+    'React', 'Redux', 'River', 'Robotics', 
+    'Rowling', 'Satire', 'Science Fiction', 
+    'Shakespeare', 'Singh', 'Swimming', 'Tale', 
+    'Thrun', 'Time', 'Tolstoy', 'Travel', 
+    'Ultimate', 'Virtual Reality', 
+    'Web Development', 'iOS'
+]
+
+const SEARCH_TERMS_LOWER = SEARCH_TERMS.map(term => term.toLowerCase());
+
 class SearchBooks extends Component {
 
     state = {
@@ -11,26 +38,25 @@ class SearchBooks extends Component {
     }
 
     searchBookByTitleOrAuthor = (event) => {
-        const searchQuery = event.target.value.trim();
-        
-        BooksAPI.search(searchQuery)
-        .then((books) => {
-            console.log('searchQuery is ', searchQuery);
-            if (books.constructor.name === 'Array') {
-                this.setState(() => ({
-                    displayBooks: books
-                }))
-            } else {
-                this.setState(() => ({
-                    displayBooks: []
-                }))
+        const searchQuery = event.target.value.trimStart();
+
+        if (searchQuery.length > 0) {
+            if (SEARCH_TERMS_LOWER.includes(searchQuery.toLowerCase())) {
+                BooksAPI.search(searchQuery)
+                    .then((books) => {
+                        this.setState(() => ({
+                            displayBooks: books
+                        }))
+                    });
             }
-        });
-        
-        
-    
+        } else {
+            this.setState(() => ({
+                displayBooks: []
+            }))
+        }
+
         this.setState(() => ({
-            searchTerm: searchQuery.trim()
+            searchTerm: searchQuery
         }));
     }
 
@@ -68,9 +94,6 @@ class SearchBooks extends Component {
                     {displayBooks.length > 0 && (
                         <ol className="books-grid">
                             {displayBooks.map((book) => {
-                                console.log("Display books length ", displayBooks.length);
-                                console.log(book.title);
-                                console.log(book.authors);
                                 return (<Book key={book.id} book={book} onChangeSelectOption={this.onChangeBookShelf} />)
                             }
                             )}
