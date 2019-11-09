@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
+import PropTypes from 'prop-types';
 
 class Book extends Component {
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        onChangeSelectOption: PropTypes.func.isRequired
+    }
+
     state = {
         selectValue: "none"
     }
