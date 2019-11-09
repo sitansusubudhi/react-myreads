@@ -38,7 +38,8 @@ class SearchBooks extends Component {
     }
 
     searchBookByTitleOrAuthor = (event) => {
-        const searchQuery = event.target.value.trimStart();
+        const { value } = event.target;
+        const searchQuery = value.trim();
 
         if (searchQuery.length > 0) {
             if (SEARCH_TERMS_LOWER.includes(searchQuery.toLowerCase())) {
@@ -48,15 +49,22 @@ class SearchBooks extends Component {
                             displayBooks: books
                         }))
                     });
+                console.log("Search Terms match. " + searchQuery);
+            } else {
+                this.setState(() => ({
+                    displayBooks: []
+                }))
+                console.log("Search Terms do not match. " + searchQuery);
             }
         } else {
             this.setState(() => ({
                 displayBooks: []
-            }))
+            }));
+            console.log("Search Query length is 0.");
         }
 
         this.setState(() => ({
-            searchTerm: searchQuery
+            searchTerm: value
         }));
     }
 
