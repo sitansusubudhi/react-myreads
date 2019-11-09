@@ -196,3 +196,14 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
+.place-holder-search-instruction {
+  padding: 20px 10px 0;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.place-holder-search {
+  padding: 15px 10px;
+  text-align: center;
+}

@@ -99,6 +99,14 @@ class SearchBooks extends Component {
                             )}
                         </ol>
                     )}
+                    {displayBooks.length === 0 && (
+                        <div className="place-holder-search-instruction">
+                            Kindly use any one of the below search terms to search for books. 
+                            <div className="place-holder-search">
+                                {SEARCH_TERMS.join(', ')}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         );
