@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as BooksAPI from './BooksAPI';
+import * as BooksAPI from './utils/BooksAPI';
 import PropTypes from 'prop-types';
 
 class Book extends Component {

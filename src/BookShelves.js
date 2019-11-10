@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
-import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './utils/BooksAPI'
+import logo from './icons/logo.svg';
 
 class BookShelves extends Component {
     state = {
@@ -49,6 +50,7 @@ class BookShelves extends Component {
             <div className="list-books">
                 <div className="list-books-title">
                     <h1>MyReads</h1>
+                    <img src={logo} className="App-logo" alt="logo" />
                 </div>
                 <div className="list-books-content">
                     <div>
