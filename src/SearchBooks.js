@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './utils/BooksAPI'
 import Book from './Book'
+import logo from './icons/logo.svg';
 
 const SEARCH_TERMS = [
     'Android', 'Art', 'Artificial Intelligence', 
@@ -34,7 +35,8 @@ class SearchBooks extends Component {
 
     state = {
         searchTerm: '',
-        displayBooks: []
+        displayBooks: [],
+        displayLoadingLogo: false
     }
 
     searchBookByTitleOrAuthor = (event) => {
@@ -43,10 +45,14 @@ class SearchBooks extends Component {
 
         if (searchQuery.length > 0) {
             if (SEARCH_TERMS_LOWER.includes(searchQuery.toLowerCase())) {
+                this.setState(() => ({
+                    displayLoadingLogo: true
+                }))
                 BooksAPI.search(searchQuery)
                     .then((books) => {
                         this.setState(() => ({
-                            displayBooks: books
+                            displayBooks: books,
+                            displayLoadingLogo: false
                         }))
                     });
                 console.log("Search Terms match. " + searchQuery);
@@ -75,7 +81,7 @@ class SearchBooks extends Component {
 
     render() {
 
-        const { searchTerm, displayBooks  } = this.state;
+        const { searchTerm, displayBooks, displayLoadingLogo } = this.state;
 
         return (
             <div className="search-books">
@@ -93,12 +99,16 @@ class SearchBooks extends Component {
                         <input
                             type="text"
                             placeholder="Search by title or author"
+                            autoFocus={true}
                             value={searchTerm}
                             onChange={this.searchBookByTitleOrAuthor} />
 
                     </div>
                 </div>
                 <div className="search-books-results">
+                    {displayLoadingLogo && (
+                        <img src={logo} className="App-logo center" alt="logo"/>
+                    )}
                     {displayBooks.length > 0 && (
                         <ol className="books-grid">
                             {displayBooks.map((book) => {
@@ -107,7 +117,7 @@ class SearchBooks extends Component {
                             )}
                         </ol>
                     )}
-                    {displayBooks.length === 0 && (
+                    {!displayLoadingLogo && displayBooks.length === 0 && (
                         <div className="place-holder-search-instruction">
                             Kindly use any one of the below search terms to search for books. 
                             <div className="place-holder-search">
