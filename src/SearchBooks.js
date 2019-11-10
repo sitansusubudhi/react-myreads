@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './utils/BooksAPI'
 import Book from './Book'
-import logo from './icons/logo.svg';
+import logo from './icons/dual-ring.svg';
 
 const SEARCH_TERMS = [
     'Android', 'Art', 'Artificial Intelligence', 
