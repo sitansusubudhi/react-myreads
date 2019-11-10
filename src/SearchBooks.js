@@ -97,7 +97,7 @@ class SearchBooks extends Component {
     }
 
      /**
-     * @description Update Book shelf.
+     * @description Updates shelf for the given Book. Pass as a callback function to Book component.
      * @param {object} book - book object which contains at minimum an 'id' attribute
      * @param {string} shelf - Shelf contains values from either of 'currentlyReading', 'wantToRead', 'read', 'none'
      */
@@ -107,12 +107,15 @@ class SearchBooks extends Component {
 
 
     render() {
-        // Destructuring to obtain all state variables
-        const { searchTerm, displayBooks, displayLoadingLogo } = this.state;
+        
+        const { searchTerm, displayBooks, displayLoadingLogo } = this.state; // Destructuring to obtain all state variables
 
         return (
             <div className="search-books">
                 <div className="search-books-bar">
+                    {/**
+                     * Add link to navigate back to main page.
+                     */}
                     <Link className="close-search" to="/">Close</Link>
                     <div className="search-books-input-wrapper">
                         {/**
