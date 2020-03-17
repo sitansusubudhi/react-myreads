@@ -13,8 +13,8 @@ class App extends React.Component {
          * Since, we do not need to pass props to the child components,
          * we can let react router to render the component based on the URL path.
          */} 
-        <Route path="/search" component={SearchBooks} />
-        <Route exact path="/" component={BookShelves} />
+        <Route path={process.env.PUBLIC_URL + "/search"} component={SearchBooks} />
+        <Route exact path={process.env.PUBLIC_URL + "/"} component={BookShelves} />
       </div>
     )
   }

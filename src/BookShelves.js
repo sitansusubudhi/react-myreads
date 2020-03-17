@@ -99,7 +99,7 @@ class BookShelves extends Component {
                     {/**
                      * Add link to navigate to search page.
                      */}
-                    <Link to="/search">
+                    <Link to={process.env.PUBLIC_URL + "/search"}>
                         <button>Add a book</button>
                     </Link>
                 </div>

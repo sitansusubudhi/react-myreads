@@ -116,7 +116,7 @@ class SearchBooks extends Component {
                     {/**
                      * Add link to navigate back to main page.
                      */}
-                    <Link className="close-search" to="/">Close</Link>
+                    <Link className="close-search" to={process.env.PUBLIC_URL + "/"}>Close</Link>
                     <div className="search-books-input-wrapper">
                         {/**
                          * Set autoFocus attribute so that user does not have to reach for the input field to search.
