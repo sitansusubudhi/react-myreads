@@ -1,7 +1,7 @@
 {
   "main.css": "/React-MyReads/static/css/main.14b99f05.chunk.css",
-  "main.js": "/React-MyReads/static/js/main.ba19b04b.chunk.js",
-  "main.js.map": "/React-MyReads/static/js/main.ba19b04b.chunk.js.map",
+  "main.js": "/React-MyReads/static/js/main.d511d57b.chunk.js",
+  "main.js.map": "/React-MyReads/static/js/main.d511d57b.chunk.js.map",
   "static/js/1.e7b86bf8.chunk.js": "/React-MyReads/static/js/1.e7b86bf8.chunk.js",
   "static/js/1.e7b86bf8.chunk.js.map": "/React-MyReads/static/js/1.e7b86bf8.chunk.js.map",
   "runtime~main.js": "/React-MyReads/static/js/runtime~main.dbbf21e1.js",
@@ -11,6 +11,6 @@
   "static/media/dual-ring.svg": "/React-MyReads/static/media/dual-ring.6e620cf0.svg",
   "static/css/main.14b99f05.chunk.css.map": "/React-MyReads/static/css/main.14b99f05.chunk.css.map",
   "index.html": "/React-MyReads/index.html",
-  "precache-manifest.bb606d5831b5b05190d3cda0d698713d.js": "/React-MyReads/precache-manifest.bb606d5831b5b05190d3cda0d698713d.js",
+  "precache-manifest.c6cf83da2351d9fc1f817774a41833b8.js": "/React-MyReads/precache-manifest.c6cf83da2351d9fc1f817774a41833b8.js",
   "service-worker.js": "/React-MyReads/service-worker.js"
 }
