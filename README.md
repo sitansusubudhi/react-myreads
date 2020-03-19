@@ -2,6 +2,7 @@
 
 This is a bookshelf app that allows us to select and categorize books that one has read, currently reading, or want to read. The application is built using React. It uses an API server and client library BooksAPI to persist information as one interacts with the application.
 
+The project is hosted at Netlify at [React-MyReads](https://react-myreads-app.netlify.com/)
 The project is also hosted using GitHub pages at [React-MyReads](https://sitansusubudhi.github.io/React-MyReads/)
 
 ## View project locally
