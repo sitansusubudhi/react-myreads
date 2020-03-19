@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/React-MyReads/static/css/main.14b99f05.chunk.css"
   },
   {
-    "revision": "271372cd83ea8987b0be12afa5b09c6b",
+    "revision": "76d9994b839d5756c140bc25b5265108",
     "url": "/React-MyReads/index.html"
   }
 ];
